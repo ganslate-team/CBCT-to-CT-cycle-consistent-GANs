@@ -59,13 +59,13 @@ val:
     freq: 1000
 
     multi_dataset:
-        lungs:
-            name: CBCTtoCTValTestDataset
-            root: /workspace/train_val/val
+        cervix:
+            name: CBCTtoCTValDataset
+            root:  /data/valid
         
         phantoms:
-            name: CBCTtoCTValTestDataset
-            root: /workspace/train_val/val_phantom
+            name: ElektaPhantomData
+            root:  /data/phantom
 
     sliding_window:
         window_size: ${train.dataset.patch_size}

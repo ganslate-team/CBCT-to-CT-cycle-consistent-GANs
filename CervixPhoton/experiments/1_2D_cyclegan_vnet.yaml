@@ -1,0 +1,74 @@
+project_dir: ./CervixPhoton
+
+train:
+    cuda: True
+    n_iters: 100000
+    n_iters_decay: 100000
+    batch_size: 1
+    output_dir: ./checkpoints/CervixPhoton/1_2D_cyclegan_vnet
+    seed: 42
+
+    logging:
+        freq: 100
+        wandb:
+            project: CervixPhotonExperiments
+            run: 1_2D_cyclegan_vnet
+        image_window: [0.289 ,0.40]
+
+    checkpointing:
+        freq: 1000
+
+    dataset: 
+        name: "CBCTtoCT2DDataset"
+        root: /data/train
+        num_workers: 12
+        image_size: [384, 384]
+        enable_masking: True
+
+    gan:  
+        name: CycleGAN
+
+        generator:
+            name: Vnet2D
+            in_channels: 1
+            out_channels: 1
+
+        discriminator:
+            name: PatchGAN2D
+            n_layers: 2
+            in_channels: 1
+
+        optimizer:
+            lambda_AB: 5.0
+            lambda_BA: 5.0
+            lambda_identity: 0.0
+            proportion_ssim: 0.0
+            lr_D: 0.0002
+            lr_G: 0.0004
+
+    metrics: 
+        discriminator_evolution: True
+        ssim: True
+    
+val:
+    freq: 1000
+
+    multi_dataset:
+        cervix:
+            name: CBCTtoCTValDataset
+            root:  /data/valid
+        
+        phantoms:
+            name: ElektaPhantomDataset
+            root:  /data/phantom
+
+    sliding_window:
+        window_size: "${train.dataset.image_size}"        
+        
+test:
+    dataset:
+        name: CBCTtoCTValDataset
+        root: /data/test
+
+    sliding_window:
+        window_size: ${train.dataset.image_size}

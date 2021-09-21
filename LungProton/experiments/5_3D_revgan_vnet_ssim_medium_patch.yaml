@@ -1,4 +1,4 @@
-project_dir: ./LungProton
+project: ./LungProton
 
 train:
     mixed_precision: True
@@ -20,16 +20,16 @@ train:
         freq: 1000
 
     dataset: 
-        name: CBCTtoCTDataset
+        _target_: project.datasets.train_dataset.CBCTtoCTDataset
         root: /workspace/train_val/train
         num_workers: 8
         patch_size: [24, 224, 224]
 
     gan:  
-        name: RevGAN
+        _target_: ganslate.nn.gans.unpaired.RevGAN
 
         generator:
-            name: Vnet3D
+            _target_: ganslate.nn.generators.Vnet3D
             in_out_channels:
                 AB: [1, 1]
             use_memory_saving: False
@@ -39,7 +39,7 @@ train:
             up_blocks: [3, 3, 3]
 
         discriminator:
-            name: PatchGAN3D
+            _target_: ganslate.nn.discriminators.PatchGAN3D
             n_layers: 2
             in_channels:
                 B: 1
@@ -61,11 +61,11 @@ val:
 
     multi_dataset:
         lungs:
-            name: CBCTtoCTValTestDataset
+            _target_: project.datasets.val_test_dataset.CBCTtoCTValTestDataset
             root: /workspace/train_val/val
         
         phantoms:
-            name: CBCTtoCTValTestDataset
+            _target_: project.datasets.val_test_dataset.CBCTtoCTValTestDataset
             root: /workspace/train_val/val_phantom
 
     sliding_window:
@@ -73,7 +73,7 @@ val:
         
 test:
     dataset:
-        name: CBCTtoCTValTestDataset
+        _target_: project.datasets.val_test_dataset.CBCTtoCTValTestDataset
         root: /mnt/particija/train_val_test/test
 
     sliding_window:

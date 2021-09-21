@@ -18,7 +18,6 @@ from ganslate import configs
 
 @dataclass
 class CBCTtoCTInferenceDatasetConfig(configs.base.BaseDatasetConfig):
-    name: str = "CBCTtoCTInferenceDataset"
     hounsfield_units_range: Tuple[int, int] = (-1000, 2000)
 
 

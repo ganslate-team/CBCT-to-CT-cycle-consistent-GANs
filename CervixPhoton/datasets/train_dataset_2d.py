@@ -28,7 +28,6 @@ EXTENSIONS = ['.nrrd']
 
 @dataclass
 class CBCTtoCT2DDatasetConfig(configs.base.BaseDatasetConfig):
-    name: str = "CBCTtoCT2DDataset"
     image_size: Tuple[int, int] = (256, 256)
     hounsfield_units_range: Tuple[int, int] = field(
         default_factory=lambda: (-1000, 2000))  #TODO: what should be the default range

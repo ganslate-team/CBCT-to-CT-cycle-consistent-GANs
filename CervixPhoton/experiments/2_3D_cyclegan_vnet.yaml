@@ -1,4 +1,4 @@
-project_dir: ./CervixPhoton
+project: ./CervixPhoton
 
 train:
     mixed_precision: True
@@ -20,23 +20,23 @@ train:
         freq: 1000
 
     dataset: 
-        name: CBCTtoCTDataset
+        _target_: project.datasets.train_dataset.CBCTtoCTDataset
         root: /workspace/train_val/train
         num_workers: 8
         patch_size: [24, 384, 384]
 
     gan:  
-        name: CycleGAN
+        _target_: ganslate.nn.gans.unpaired.CycleGAN
 
         generator:
-            name: Vnet3D
+            _target_: ganslate.nn.generators.Vnet3D
             in_out_channels:
                 AB: [1, 1]
             down_blocks: [2, 2, 3]
             up_blocks: [3, 3, 3]
 
         discriminator:
-            name: PatchGAN3D
+            _target_: ganslate.nn.discriminators.PatchGAN3D
             n_layers: 2
             in_channels:
                 B: 1
@@ -58,11 +58,11 @@ val:
 
     multi_dataset:
         cervix:
-            name: CBCTtoCTValDataset
+            _target_: project.datasets.val_dataset.CBCTtoCTValDataset
             root:  /data/valid
         
         phantoms:
-            name: ElektaPhantomData
+            _target_: project.datasets.phantom_dataset.ElektaPhantomDataset
             root:  /data/phantom
 
     sliding_window:
@@ -70,7 +70,7 @@ val:
         
 test:
     dataset:
-        name: CBCTtoCTValDataset
+        _target_: project.datasets.val_dataset.CBCTtoCTValDataset
         root: /data/test
 
     sliding_window:

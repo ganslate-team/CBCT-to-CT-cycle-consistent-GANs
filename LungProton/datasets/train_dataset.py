@@ -23,7 +23,6 @@ EXTENSIONS = ['.nrrd']
 
 @dataclass
 class CBCTtoCTDatasetConfig(configs.base.BaseDatasetConfig):
-    name: str = "CBCTtoCTDataset"
     # Allows 2D or 3D patches
     patch_size: Tuple[int] = (32, 32, 32)
     hounsfield_units_range: Tuple[int, int] = (-1000, 2000)

@@ -20,7 +20,6 @@ from .common import (get_ct_body_mask_path, mask_out_ct, mask_out_registered_cbc
 
 @dataclass
 class CBCTtoCTValTestDatasetConfig(configs.base.BaseDatasetConfig):
-    name: str = "CBCTtoCTValidationDataset"
     hounsfield_units_range: Tuple[int, int] = (-1000, 2000)
 
 

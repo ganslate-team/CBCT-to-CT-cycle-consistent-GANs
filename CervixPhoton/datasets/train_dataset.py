@@ -32,7 +32,6 @@ EXTENSIONS = ['.nrrd']
 
 @dataclass
 class CBCTtoCTDatasetConfig(configs.base.BaseDatasetConfig):
-    name: str = "CBCTtoCTDataset"
     patch_size: Tuple[int, int, int] = field(default_factory=lambda: (32, 32, 32))
     hounsfield_units_range: Tuple[int, int] = field(
         default_factory=lambda: (-1000, 2000))  #TODO: what should be the default range

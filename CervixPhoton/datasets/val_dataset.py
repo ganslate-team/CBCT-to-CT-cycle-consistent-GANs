@@ -32,7 +32,6 @@ EXTENSIONS = ['.nrrd']
 
 @dataclass
 class CBCTtoCTValDatasetConfig(configs.base.BaseDatasetConfig):
-    name: str = "CBCTtoCTValDataset"
     hounsfield_units_range: Tuple[int, int] = field(default_factory=lambda: (-1000, 2000))
     mask_labels: List[str] = field(default_factory=lambda: [])
 

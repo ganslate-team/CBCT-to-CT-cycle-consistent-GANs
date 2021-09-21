@@ -31,7 +31,6 @@ EXTENSIONS = ['.nrrd']
 
 @dataclass
 class ElektaPhantomDatasetConfig(configs.base.BaseDatasetConfig):
-    name: str = "ElektaPhantomDataset"
     hounsfield_units_range: Tuple[int, int] = field(default_factory=lambda: (-1000, 2000))
     insert_values: Dict[str, int] = field(
         default_factory=lambda: {

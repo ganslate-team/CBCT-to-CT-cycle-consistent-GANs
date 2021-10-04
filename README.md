@@ -2,6 +2,10 @@
 
 [Paper](UPDATE)
 
+We used [ganslate](https://github.com/ganslate-team) framework for these experiments.
+
+## Structure
+
 This repository contains the experiment configuration files and PyTorch dataset loading and preprocessing for our paper "Name of The Paper".
 
 It is organized into two folders:
@@ -10,7 +14,7 @@ It is organized into two folders:
 
 - `CervixPhoton` - experiments and dataset classes for **cervix** CBCT-to-CT translation for adaptive **photon** radiotherapy
 
-These experiments were ran using [ganslate](https://github.com/ganslate-team) framework.
+## Running
 
 To run the experiments (if you have access to the data):
 ```
@@ -21,4 +25,11 @@ cd placeholder-name # UPDATE
 
 # change the config file accordingly
 ganslate train config="./LungProton/experiments/1_2D_cyclegan_vnet.yaml" 
+```
+
+## Acknowledgments
+
+## Citation
+```text
+TODO
 ```

@@ -2,7 +2,7 @@
 
 [Paper](UPDATE)
 
-We used [ganslate](https://github.com/ganslate-team) framework for these experiments.
+We used [ganslate](https://github.com/ganslate-team/ganslate) framework for these experiments.
 
 ## Structure
 

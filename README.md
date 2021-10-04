@@ -20,8 +20,8 @@ To run the experiments (if you have access to the data):
 ```
 pip install ganslate
 
-git clone git@github.com:ganslate-team/placeholder-name.git # UPDATE
-cd placeholder-name # UPDATE
+git clone git@github.com:ganslate-team/CBCT-to-CT-cycle-consistent-GANs.git
+cd CBCT-to-CT-cycle-consistent-GANs
 
 # change the config file accordingly
 ganslate train config="./LungProton/experiments/1_2D_cyclegan_vnet.yaml" 

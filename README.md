@@ -1,4 +1,4 @@
-# Name of The Paper
+# Analysis and comparison of cycle-consistent adversarial networks for CBCT to CT translation for adaptive radiotherapy in cervical and lung cancer patients
 
 [Paper](UPDATE)
 
@@ -6,7 +6,7 @@ We used [ganslate](https://github.com/ganslate-team/ganslate) framework for thes
 
 ## Structure
 
-This repository contains the experiment configuration files and PyTorch dataset loading and preprocessing for our paper "Name of The Paper".
+This repository contains the experiment configuration files and PyTorch dataset loading and preprocessing that we used in our paper.
 
 It is organized into two folders:
 
@@ -31,5 +31,4 @@ ganslate train config="./LungProton/experiments/1_2D_cyclegan_vnet.yaml"
 
 ## Citation
 ```text
-TODO
 ```

@@ -1,4 +1,4 @@
-# Analysis and comparison of cycle-consistent adversarial networks for CBCT to CT translation for adaptive radiotherapy in cervical and lung cancer patients
+# Optimizing CycleGAN Design for CBCT-to-CT Translation: Insights into 2D vs 3D Modeling, Patch Size, and the Need for Tailored Evaluation Metrics
 
 [Paper](UPDATE)
 
